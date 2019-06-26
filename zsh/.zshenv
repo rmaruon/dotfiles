@@ -20,6 +20,9 @@ export NODE_PATH=/usr/local/lib/node_modules/
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
+# pipenv
+export PIPENV_VENV_IN_PROJECT=1
+
 # python default encoding
 export PYTHONIOENCODING=utf-8
 
