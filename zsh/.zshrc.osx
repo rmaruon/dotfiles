@@ -1,0 +1,11 @@
+export CLICOLOR=1
+alias ls='ls -G -F'
+alias f='open -a Finder ./'
+
+alias -g C='| pbcopy'
+alias img='qlmanage -p "$@" >& /dev/null'  # http://firegoby.jp/archives/2268
+alias caskup='for c in `brew cask list`; do ! brew cask info $c | grep -qF "Not installed" || brew cask install $c; done'
+
+alias awk='gawk'            # brew install gawk
+alias sed='gsed'            # brew install gnu-sed
+alias readlink='greadlinek' # brew install coreutils

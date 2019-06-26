@@ -1,0 +1,40 @@
+[user]
+  name = rmaruon
+[color]
+  ui = auto
+[alias]
+  ch = checkout
+  cm = commit -m
+  amd = commit --amend
+  st = status
+  br = branch
+  l = log --pretty=format:'%C(blue)%h%Creset %C(cyan)[%ad]%Creset %C(green)%an%Creset %s%C(yellow bold)%d%Creset' --graph --date=iso
+  pu = push
+  puu = push -u
+  r = remote
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  rmall = rm `git ls-files --deleted`
+  cancel = reset HEAD
+  p = add -p
+  todo = !"f() { for fn in `git diff --name-only master`;do if [ -f $fn ];then git grep -i todo $fn;fi done };f"
+  graph = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+  gr = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+  co = checkout
+[core]
+  excludesfile = ~/.gitignore_global
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

@@ -1,0 +1,171 @@
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Aliases
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# global aliases
+alias -g T="| tee"
+alias -g G="| grep"
+alias -g L="|& $PAGER"
+alias -g WC="| wc"
+alias -g LC="| wc -l"
+alias -g Z="| tail"
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias vi='vim'
+
+# my aliases
+alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias lt='ls -AltrF'
+alias hi='history 1'
+
+alias ipynb='ipython notebook'
+alias javac='javac -J-Dfile.encoding=UTF8'
+alias r='R -q --vanilla --slave --args'
+
+# jokey git alias
+alias g=git
+alias gst='git status'
+alias gr='git graph'
+alias gdiff='git diff'
+alias glog='git log'
+alias gshow='git show'
+alias gbra='git branch'
+alias gcho='git checkout'
+alias gcomi='git commit'
+alias gcomm='git commit -m '
+
+# compdef _gnu_generic inv invoke
+
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Functions
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# mkdir && cd
+function mkcd() {
+  if [ -n "$1" ]; then
+    mkdir -p "$@" && cd "$1"
+  else
+    echo "usage: mkcd new_directory"
+  fi
+}
+
+# csv viewer
+function csview() {
+  if [ -p /dev/stdin ]; then
+    cat - | column -s, -t  | less -NS
+  else
+    if [ -n "$1" ]; then
+      column -s, -t $1 | less -NS
+    else
+      echo "Usage: Missing filename"
+    fi
+  fi
+}
+
+# csv viewer (sed)
+function scsview() {
+  if [ -p /dev/stdin ]; then
+    cat - | column -s, -t  | less -NS
+  else
+    if [ -n "$1" ]; then
+      sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t | less -NS
+    else
+      echo "Usage: Missing filename"
+    fi
+  fi
+}
+
+# coulmn -t | less -NS
+function tless() {
+  if [ -n "$1" ]; then
+    column -t $1 | less -NS
+  elif [ -p /dev/stdin ]; then
+    cat - | column -t  | less -NS
+  else
+    echo "Usage: Missing filename"
+  fi
+}
+
+# Goolge Search by Google Chrome
+function google() {
+  local str opt
+  if [ $# != 0 ]; then
+    for i in $*; do
+      # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
+      str="$str${str:++}$i"
+    done
+    opt='search?num=100'
+    opt="${opt}&q=${str}"
+  fi
+  open -a Google\ Chrome http://www.google.co.jp/$opt
+}
+alias ggr="google"
+
+# peco hitory
+function peco-select-history() {
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(\history -n 1 | \
+    eval $tac | \
+    peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+# C-jで下のディレクトリに移動する
+function cddown_dir(){
+  com='$SHELL -c "ls -AF . | grep / "'
+  while [ $? = 0 ]
+  do
+    cdir=`eval $com | peco`
+    if [ $? = 0 ];then
+      cd $cdir
+      eval $com
+    else
+      break
+    fi
+  done
+  zle reset-prompt
+}
+zle -N cddown_dir
+bindkey '^j' cddown_dir
+
+# zshでAlt + 矢印キーで単語移動するための設定
+# http://d.hatena.ne.jp/tkng/20090827/1251339662
+bindkey "[C" forward-word
+bindkey "[D" backward-word
+
+# EIJIRO
+function ej(){
+  # TODO: 何語でも連結できるようにする
+  if [ -n "$1" ]; then
+    query="$1"
+    # look -f "$query" $MYDICT| ag -i "$query" | less
+    # look -f "$query" $MYDICT | grep -i "$query" --color
+    look -f "$query" $MYDICT | head -n 5 | grep -i "$query" --color
+  else
+    echo "Usage: ej [word]"
+  fi
+}
+
+# [Linux のコマンドラインでオフライン英和辞書 - Qiita]
+# http://qiita.com/yubais/items/21cac44d71c30edd22c9
+function di() {
+  if [ $1 = -e ]; then
+    # 正規表現検索
+    grep "$2" $MYDICT2 -E -A 1 -wi --color
+  else
+    # 前方一致
+    grep "^$1" $MYDICT2 -E -A 1 -wi --color
+  fi
+}

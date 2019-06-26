@@ -1,0 +1,47 @@
+# Sharp.
+\#*#
+*#
+.#*
+
+# Swap.
+.*~
+*~
+*.sw[po]
+
+# Log.
+*.log
+
+# Archives.
+*.zip
+*.tar.gz
+.bz2
+
+# Mac.
+.DS_Store
+
+# Windows.
+Thumbs.db
+
+# ActionScript.
+*.swf
+
+# C/C++.
+a.out
+*.o
+*.a
+
+# Java.
+*.class
+*.jar
+*.war
+*.ear
+
+# Python.
+*.py[cod]
+
+# TeX/LaTeX.
+*.dvi
+*.aux
+
+# Vim.
+Session.vim
