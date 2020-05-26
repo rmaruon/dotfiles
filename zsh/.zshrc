@@ -1,31 +1,22 @@
+# aliases
+source ~/.zaliases
+
+# env
+typeset -U PATH  # 重複を許さない
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 bindkey -e
 
+## npm install n
+export N_PREFIX="$HOME/.n"
+export PATH="$PATH:$N_PREFIX/bin"
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Load .*z files
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-if [ -f ~/.zprivate ]; then
-  source ~/.zprivate
-fi
-
-if [ -f ~/.zaliases ]; then
-  source ~/.zaliases
-fi
-
-case ${OSTYPE} in
-  darwin*) source ~/.zshrc.osx ;;
-  linux*) source ~/.zshrc.linux ;;
-esac
+## python
+export PIPENV_VENV_IN_PROJECT=1
+export PYTHONIOENCODING=utf-8
 
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Prompt
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# ${fg[...]} や $reset_color をロード
+# prompt
 autoload -U colors; colors
 
 PROMPT="
@@ -35,7 +26,7 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 RPROMPT='[`rprompt-git-current-branch`%F{cyan}%~%f]'
 RPROMPT2="%K{green}%_%k"
 
-setopt prompt_subst  # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst       # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt transient_rprompt  # 入力が右端まで来たらRPROMPTを消す
 
 function rprompt-git-current-branch {
@@ -63,10 +54,7 @@ function rprompt-git-current-branch {
 }
 
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# History
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+# history
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -81,14 +69,11 @@ setopt inc_append_history  # すぐにヒストリファイルに追記する。
 setopt share_history       # ヒストリを共有
 
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Complement
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+# complement
 autoload -Uz compinit
 compinit
 
-# The following lines were added by compinstall
+## The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 
 setopt auto_list          # 補完候補を一覧表示
@@ -109,15 +94,12 @@ setopt numeric_glob_sort  # ファイル名の展開で辞書順ではなく数�
 zstyle ':completion:*:default' menu select=1         # 補完候補のカーソル選択を有効に
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字小文字を区別しない
 
-# 補完候補の色づけ
+## 補完候補の色づけ
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Uncategorize
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+# etc
 limit coredumpsize 102400  # コアダンプサイズを制限
 unsetopt promptcr          # 出力の文字列末尾に改行コードが無い場合でも表示
 
@@ -129,7 +111,7 @@ setopt nobeep              # ビープを鳴らさない
 setopt print_eight_bit     # 出力時8ビットを通す 日本語ファイル名を表示可能に
 setopt pushd_ignore_dups   # 同じディレクトリを pushd しない
 
-# ディレクトリ名だけで cdしてls
+## ディレクトリ名だけで cdしてls
 setopt auto_cd
 function chpwd() { ls }
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
