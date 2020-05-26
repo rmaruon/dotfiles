@@ -1,0 +1,7 @@
+set blame-view  = date author id:yes,color line-number:yes,interval=1 text
+set blame-view-date = custom
+set blame-view-date-format = "%Y-%m-%d %H:%M"
+set main-view = id date author commit-title:graph=yes,refs=yes
+set main-view-date = custom
+set main-view-date-format = "%Y-%m-%d %H:%M"
+set vertical-split = false
