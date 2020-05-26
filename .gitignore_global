@@ -1,47 +1,42 @@
-# Sharp.
+# archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# logs and databases
+*.log
+*.sql
+*.sqlite
+
+# os generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# sharp
 \#*#
 *#
 .#*
 
-# Swap.
+# swap
 .*~
 *~
 *.sw[po]
-
-# Log.
-*.log
-
-# Archives.
-*.zip
-*.tar.gz
-.bz2
-
-# Mac.
-.DS_Store
-
-# Windows.
-Thumbs.db
-
-# ActionScript.
-*.swf
-
-# C/C++.
-a.out
-*.o
-*.a
-
-# Java.
-*.class
-*.jar
-*.war
-*.ear
-
-# Python.
-*.py[cod]
-
-# TeX/LaTeX.
-*.dvi
-*.aux
-
-# Vim.
-Session.vim
