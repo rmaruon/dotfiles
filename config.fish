@@ -1,5 +1,6 @@
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/chpwd.fish
+source ~/.config/fish/env.fish
 
 # oh-my-fish/theme-bobthefish
 set -g theme_display_git_master_branch yes
