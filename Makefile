@@ -13,7 +13,7 @@ brew: ## $ brew bundle
 mas: ## $ brew bundle --file Brewfile_mas
 	@/usr/local/bin/brew bundle --file Brewfile_mas
 
-stow: ## Create Symbolic links
+stow: ## Create symbolic links
 	@/usr/local/bin/stow $(DIRNAMES) --target ~/ --ignore .DS_Store
 
 clean: ## Delete symbolic links
