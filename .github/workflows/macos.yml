@@ -15,7 +15,7 @@ jobs:
         run: make brew
 
       - name: Create symbolic links
-        run: 
+        run: |
           rm ~/.gitconfig
           make stow
 
