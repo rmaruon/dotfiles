@@ -19,6 +19,7 @@ brew "git-flow"
 brew "gnu-sed"
 brew "go"
 brew "jq"
+brew "mas"
 brew "n"
 brew "nkf"
 brew "peco"
@@ -87,3 +88,12 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "vivaldi"
 cask "xld"
+mas "Blurred", id: 1497527363
+mas "GarageBand", id: 682658836
+mas "Hidden Bar", id: 1452453066
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Micro Sniff", id: 1504024265
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Perculia", id: 1462633284
