@@ -21,7 +21,7 @@ clean: ## Delete symbolic links
 
 restow: clean stow ## $ make clean stow
 
-setup: brew mas stow ## $ make brew mas stow
+setup: init brew mas stow ## $ make init brew mas stow
 
 help:
 	@/usr/bin/grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | /usr/bin/awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
