@@ -6,7 +6,7 @@
 [core]
   excludesfile = ~/.gitignore_global
 [merge]
-	conflictStyle = diff3
+  conflictStyle = diff3
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
