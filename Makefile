@@ -1,5 +1,5 @@
 ROOT := $(dir $(abspath  $(lastword $(MAKEFILE_LIST))))
-DIRNAMES := $(filter-out .DS_Store , $(subst /, , $(wildcard */)))
+DIRNAMES := $(subst /, , $(wildcard */))
 
 .DEFAULT_GOAL := help
 
@@ -10,7 +10,10 @@ init: ## Install Homebrew
 brew: ## $ brew bundle
 	@/usr/local/bin/brew bundle
 
-stow: ## Create Ssmbolic links
+mas: ## $ brew bundle --file Brewfile_mas
+	@/usr/local/bin/brew bundle --file Brewfile_mas
+
+stow: ## Create Symbolic links
 	@/usr/local/bin/stow $(DIRNAMES) --target ~/ --ignore .DS_Store
 
 clean: ## Delete symbolic links
@@ -18,7 +21,7 @@ clean: ## Delete symbolic links
 
 restow: clean stow ## $ make clean stow
 
-setup: brew stow ## $ make brew stow
+setup: brew mas stow ## $ make brew mas stow
 
 help:
 	@/usr/bin/grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | /usr/bin/awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
