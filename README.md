@@ -1,4 +1,5 @@
 # dotfiles
+[![macOS setup](https://github.com/rmaruon/dotfiles/workflows/macOS%20setup/badge.svg)](https://github.com/rmaruon/dotfiles/actions?query=workflow%3A%22macOS+setup%22)
 
 ## Usage
 
