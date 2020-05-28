@@ -1,0 +1,21 @@
+name: macOS setup
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v2
+
+      - name: brew bundle
+        run: make brew
+
+      - name: Create symbolic links
+        run: make stow
+
+      - name: Delete symbolic links
+        run: make clean
