@@ -7,6 +7,7 @@ alias i="invoke"
 alias o="open"
 alias pe="pipenv"
 alias t="tig"
+alias where="which -a"
 
 function mkcd
     mkdir $argv
