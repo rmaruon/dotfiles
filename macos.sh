@@ -70,6 +70,8 @@ defaults write com.apple.finder SidebarSharedSectionDisclosedState -bool true
 #
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
+killall Finder
+
 
 # Dock, Dashboard
 
@@ -89,6 +91,8 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+killall Dock
 
 
 # etc
@@ -113,7 +117,5 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # sleep or screen saver mode
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-
-killall Finder
-killall Dock
+#
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
