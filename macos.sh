@@ -23,8 +23,8 @@ defaults write -g com.apple.trackpad.scaling -float 10
 # Keyboard
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # Enable full keyboard access for all controls
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
