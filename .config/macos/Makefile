@@ -4,7 +4,7 @@ DIRNAMES := fish git mackup tmux vim zsh
 .DEFAULT_GOAL := help
 
 setup:  ## setup
-	@/usr/bin/env bash setup.sh
+	@/usr/bin/env bash ./config/macos/setup.sh
 
 restore: ## $ mackup restore
 	@/usr/local/bin/mackup restore

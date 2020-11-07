@@ -4,7 +4,7 @@ DIRNAMES := fish git tmux vim zsh
 .DEFAULT_GOAL := help
 
 setup:  ## setup
-	@/usr/bin/env bash setup.sh
+	@/usr/bin/env bash .config/linux/setup.sh
 
 stow: ## Create symbolic links
 	@/usr/local/bin/stow $(DIRNAMES) --target ~/
