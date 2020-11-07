@@ -15,9 +15,7 @@ jobs:
         run: make setup
 
       - name: Create symbolic links
-        run: |
-          rm ~/.gitconfig
-          make stow
+        run: make stow
 
       - name: Delete symbolic links
         run: make clean

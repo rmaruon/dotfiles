@@ -7,10 +7,10 @@ setup:  ## setup
 	@/usr/bin/env bash .config/linux/setup.sh
 
 stow: ## Create symbolic links
-	@/usr/local/bin/stow $(DIRNAMES) --target ~/
+	@/usr/bin/stow $(DIRNAMES) --target ~/
 
 clean: ## Delete symbolic links
-	@/usr/local/bin/stow --delete $(DIRNAMES) --target ~/
+	@/usr/bin/stow --delete $(DIRNAMES) --target ~/
 
 help:
 	@/usr/bin/grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(FILEPATH) | /usr/bin/awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
