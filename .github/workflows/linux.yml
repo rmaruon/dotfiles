@@ -1,0 +1,23 @@
+name: linux setup
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: setup
+        run: bash ${GITHUB_WORKSPACE}/.config/linux/setup.sh
+
+      - name: Create symbolic links
+        run: |
+          rm ~/.gitconfig
+          make stow
+
+      - name: Delete symbolic links
+        run: make clean
