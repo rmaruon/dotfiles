@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-cd `dirname $0`
+#!/usr/bin/env fish
 
 # fish
 set fish_greeting

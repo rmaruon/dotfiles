@@ -2,5 +2,5 @@
 
 cd `dirname $0`
 
-/usr/bin/env bash install.sh
-/usr/bin/env bash ../fish.sh
+/usr/bin/bash install.sh
+/usr/bin/fish ../fish.fish

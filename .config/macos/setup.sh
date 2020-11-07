@@ -13,4 +13,4 @@ xcode-select --install
 /usr/local/bin/brew bundle --file Brewfile_mas
 
 # fish
-/usr/bin/env bash ../fish.sh
+/usr/local/bin/fish ../fish.fish
