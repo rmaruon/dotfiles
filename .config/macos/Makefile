@@ -1,4 +1,4 @@
-FILEPATH := macos/Makefile
+FILEPATH := .config/macos/Makefile
 DIRNAMES := fish git mackup tmux vim zsh
 
 .DEFAULT_GOAL := help
