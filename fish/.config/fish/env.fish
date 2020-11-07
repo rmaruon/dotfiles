@@ -8,3 +8,7 @@ set PATH ./node_modules/.bin $PATH
 # python
 set -x PIPENV_VENV_IN_PROJECT true
 set -x PYTHONIOENCODING utf-8
+
+# go
+set -x GOPATH $HOME/go
+set -x PATH $HOME/go/bin $PATH
