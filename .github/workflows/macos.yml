@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: brew bundle
-        run: ${GITHUB_WORKSPACE}/macos/brew_bundle.sh
+        run: bash ${GITHUB_WORKSPACE}/macos/brew_bundle.sh
 
       - name: Create symbolic links
         run: |
