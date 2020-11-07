@@ -9,3 +9,5 @@ git clone https://github.com/rmaruon/dotfiles.git
 cd dotfiles
 make setup
 ```
+
+linux: `chsh -s /usr/bin/fish`
