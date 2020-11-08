@@ -9,3 +9,8 @@ set -g theme_display_date no
 set -g theme_display_git_master_branch yes
 set -g theme_newline_cursor yes
 set -g theme_newline_prompt '$ '
+
+# vi mode
+fish_vi_key_bindings
+function fish_mode_prompt
+end
