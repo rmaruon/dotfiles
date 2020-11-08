@@ -1,3 +1,6 @@
+# `fish` holds the abbr, so erase abbr
+for s in (abbr --list); abbr --erase $s; end
+
 abbr c "code"
 abbr C "pbcopy"
 abbr cl "clear"
