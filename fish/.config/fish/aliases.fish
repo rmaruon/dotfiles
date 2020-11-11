@@ -25,6 +25,21 @@ abbr gs      "git status --short"
 abbr gsm     "git switch master"
 abbr gst     "git stash"
 
+# docker
+abbr d     "docker"
+abbr dc    "docker container"
+abbr dcls  "docker container ls"
+abbr dcom  "docker-compose"
+abbr dex   "docker exec"
+abbr di    "docker image"
+abbr dils  "docker image ls"
+abbr dn    "docker network"
+abbr dnls  "docker network ls"
+abbr dpull "docker pull"
+abbr drun  "docker run"
+abbr dv    "docker volume"
+abbr dvls  "docker volume ls"
+
 function mkcd
     mkdir $argv
     cd $argv
