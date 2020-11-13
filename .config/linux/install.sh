@@ -26,3 +26,9 @@ sudo apt update
 sudo apt install -y golang-go
 
 go get github.com/x-motemen/ghq
+
+# node
+curl -L https://git.io/n-install | bash
+
+npm install -g commitizen
+npm install -g cz-conventional-changelog-ja
