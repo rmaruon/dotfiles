@@ -17,3 +17,7 @@ set -x PATH $HOME/go/bin $PATH
 # ruby
 set -x PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
+
+# deno
+set -x DENO_INSTALL $HOME/.deno
+set -x PATH $DENO_INSTALL/bin $PATH
