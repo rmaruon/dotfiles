@@ -1,3 +1,5 @@
+.DS_Store
+
 # fish
 fish/.config/fish/completions
 fish/.config/fish/conf.d
