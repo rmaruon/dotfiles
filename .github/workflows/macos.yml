@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: brew bundle
-        run: bash ${GITHUB_WORKSPACE}/.config/macos/brew_bundle.sh
+        run: |
+          brew unlink go@1.15
+          bash ${GITHUB_WORKSPACE}/.config/macos/brew_bundle.sh
 
       - name: Create symbolic links
         run: |
