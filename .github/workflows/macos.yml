@@ -11,10 +11,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: brew bundle
+      - name: Remove default go in path
         run: |
+          ls -al /usr/local/bin/go*
           brew unlink go@1.15
-          bash ${GITHUB_WORKSPACE}/.config/macos/brew_bundle.sh
+          rm /usr/local/bin/go
+          rm /usr/local/bin/gofmt
+
+      - name: brew bundle
+        run: bash ${GITHUB_WORKSPACE}/.config/macos/brew_bundle.sh
 
       - name: Create symbolic links
         run: |
