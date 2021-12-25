@@ -21,3 +21,6 @@ status --is-interactive; and source (rbenv init -|psub)
 # deno
 set -x DENO_INSTALL $HOME/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
+
+#
+set -x PATH $HOME/.bin $PATH
